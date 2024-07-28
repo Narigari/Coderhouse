@@ -1,5 +1,5 @@
 // Función para ingresar fecha de nacimiento, chequeando que los valores ingresados sean válidos
-function insertBirthDate() {
+function ingreseFechaNacimiento() {
     let yyyy = parseInt(prompt("Ingrese su año de nacimiento"))
 
     if(isNaN(yyyy)){
@@ -103,7 +103,7 @@ function ingreseMarcas(){
     
 }
 alert("Bienvenido! Le pediremos un par de datos para comenzar")
-insertBirthDate()
+ingreseFechaNacimiento()
 alert("Gracias! Ahora cuéntenos sobre sus gustos")
 ingreseMarcas()
 alert("Eso es todo! =)")
