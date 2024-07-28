@@ -1,82 +1,109 @@
-// Función para ingresar fecha de nacimiento, chequeando inputs válidos
-// function insertBirthDate() {
-//     let mm = parseInt(prompt("Ingrese el número de su mes de nacimiento"));
+// Función para ingresar fecha de nacimiento, chequeando que los valores ingresados sean válidos
+function insertBirthDate() {
+    let yyyy = parseInt(prompt("Ingrese su año de nacimiento"))
+
+    if(isNaN(yyyy)){
+        yyyy = null
+    }
+    // Si el usuario aprieta Cancel o deja el box blanco:
+    if (yyyy === null || yyyy === "") {
+        console.log("Función cancelada");
+        return;
+    }
+
+    while (!validYear(yyyy)) {
+        yyyy = prompt("Ingrese un año entre 1900 y 2024");
+
+        // Si el usuario aprieta Cancel o deja el box blanco:
+        if (yyyy === null || yyyy === "") {
+            console.log("Función cancelada");
+            return;
+        }
+    }
+
+    let mm = parseInt(prompt("Ingrese el número de su mes de nacimiento"));
+
+    while (validMonth(mm) == false){
+        mm = parseInt(prompt("Ingrese un mes válido"))
+    }
+
+    let dd = parseInt(prompt("Ingrese su día de nacimiento"));
     
-//     while (validMonth(mm) == false){
-//         mm = parseInt(prompt("Ingrese un mes válido"))
-//     }
+    while (validDay(yyyy,mm,dd) == false){
+        dd = parseInt(prompt("Ingrese un día válido"))
+    }
 
-//     let dd = parseInt(prompt("Ingrese su día de nacimiento"));
     
-//     while (validDate(mm,dd) == false){
-//         dd = parseInt(prompt("Ingrese un día válido"))
-//     }
+    return console.log("Fecha de nacimiento: "+ dd + "/" + mm + "/" + yyyy)
+}
 
-//     let yyyy = parseInt(prompt("Ingrese su año de nacimiento"))
+// Función para chequear que ponga un mes del 1 al 12
+function validMonth(month){
+    if(month >= 1 && month <= 12){
+        return true
+    }    
+    return false
+}
 
-//     while (validYear(yyyy) == false){
-//         yyyy = parseInt(prompt("Ingrese un año entre 1900 y 2024"))
-//     }
+// Función para poner un día entre 1 y el máximo para cada mes (si es febrero, chequea si el año es bisiesto)
+function validDay(year,month,day){
+    switch(month) {
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            maxDay = 30;
+            break;
+        case 2:
+            if(esBisiesto(year) == true){
+                maxDay = 29;
+            } else {
+                maxDay = 28;
+            }
+            break;
+    default:
+            maxDay = 31;
+            break;
+    }
     
-//     return console.log("Fecha de nacimiento: "+ dd + "/" + mm + "/" + yyyy)
-// }
+    if(day >= 1 && day <= maxDay){
+        return true
+    }
+    return false
+}
 
-// function validMonth(month){
-//     if(month >= 1 && month <= 12){
-//         return true
-//     }    
-//     return false
-// }
+// Función para limitar años de 1900 a 2024
+function validYear(year){
+    return year >= 1900 && year <= 2024;
+}
 
-// function validDate(month,date){
-//     switch(month) {
-//         case "1":
-//         case "3":
-//         case "5":
-//         case "7":
-//         case "8":
-//         case "10":
-//         case "12":
-//             maxDay = 31;
-//             break;
-//         case "2":
-//             maxDay = 28;
-//             break;
-//     default:
-//             maxDay = 30;
-//             break;
-//     }
-    
-//     if(date >= 1 && date <= maxDay){
-//         return true
-//     }
-//     return false
-// }
-
-// function validYear(year){
-//     if(year >= 1900 && year <= 2024){
-//         return true
-//     }
-//     return false
-// }
-
-// insertBirthDate()
+// Función para chequear si el año es bisiesto
+function esBisiesto (year) {
+    return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)
+}
 
 // Pedido de marcas favoritas de puzzles
-
-for (i = 1 ; i <= 5  ; i++){
-    let puzzlesFavoritos
-
-    if (i === 0) {
-        puzzlesFavoritos = prompt("Ingrese hasta 5 marcas favoritas de puzzles")
-    } else {
-        puzzlesFavoritos = prompt("Ingrese otra marca")
+function ingreseMarcas(){
+    for (i = 1 ; i <= 5  ; i++){
+        let puzzlesFavoritos
+        
+        if (i === 1) {
+            puzzlesFavoritos = prompt("Ingrese hasta 5 marcas favoritas de puzzles")
+        } else {
+            puzzlesFavoritos = prompt("Ingrese otra marca")
+        }
+        
+        if (puzzlesFavoritos === null || puzzlesFavoritos == ""){
+            break
+        }
+        
+        console.log("Marca #" + i + " " + puzzlesFavoritos)
+        
     }
-
-    if (puzzlesFavoritos === null){
-        break
-    }
-
-    console.log("Marca #" + i + " " + puzzlesFavoritos)
-
+    
 }
+alert("Bienvenido! Le pediremos un par de datos para comenzar")
+insertBirthDate()
+alert("Gracias! Ahora cuéntenos sobre sus gustos")
+ingreseMarcas()
+alert("Eso es todo! =)")
