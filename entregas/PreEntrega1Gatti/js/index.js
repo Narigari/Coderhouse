@@ -23,13 +23,13 @@ function ingreseFechaNacimiento() {
 
     let mm = parseInt(prompt("Ingrese el número de su mes de nacimiento"));
 
-    while (validMonth(mm) == false){
+    while (!validMonth(mm)){
         mm = parseInt(prompt("Ingrese un mes válido"))
     }
 
     let dd = parseInt(prompt("Ingrese su día de nacimiento"));
     
-    while (validDay(yyyy,mm,dd) == false){
+    while (!validDay(yyyy,mm,dd)){
         dd = parseInt(prompt("Ingrese un día válido"))
     }
 
