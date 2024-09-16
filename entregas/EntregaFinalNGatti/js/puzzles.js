@@ -4,14 +4,14 @@ const PIECES = [500, 1000, 1500, 2000]
 
 const PUZZLES = [
     {
-        title: "Cat's on the Shelf",
+        title: "Cats on the Shelf",
         brand: "Ravensburger",
         pieces: 500
     },
     {
         title: "Seafood",
         brand: "Ravensburger",
-        pieces: 500
+        pieces: 1500
     },
     {
         title: "New York",
@@ -37,7 +37,11 @@ function loadInitialData(){
         localStorage.setItem("brands", JSON.stringify(BRANDS))
     }
 
-    localStorage.setItem("pieces", JSON.stringify(PIECES))
+    let lsPieces = JSON.parse(localStorage.getItem("pieces"))
+
+    if(lsPieces === null || lsPieces.length < PIECES.length){
+        localStorage.setItem("pieces", JSON.stringify(PIECES))
+    }
 
     localStorage.setItem("puzzles", JSON.stringify(PUZZLES))
 

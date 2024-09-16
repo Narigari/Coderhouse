@@ -30,43 +30,67 @@ brandForm.addEventListener("submit", (e) =>{
 
     let inputValue = brandForm["input_box"].value
 
-    let newBrands = lsBrands
+    let newBrands = JSON.parse(localStorage.getItem("brands"))
 
     //Si no ingresa algo válido en el campo, se avisa al usuario y se frena la ejecución
     if (!inputValue || inputValue === BRND_ERR_MSG || inputValue === BRND_DUP_MSG || inputValue === BRND_OK_MSG){
         
-        //Reemplazar por equivalente en Sweet Alert
-        brandForm["input_box"].value = BRND_ERR_MSG
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: BRND_ERR_MSG,
+          });
         
+        brandForm["input_box"].value = ""
         return
         
     }
     
     //Verifico si el nombre de la marca que se ingresó no se encuentra ya en el local storage    
-    if (lsBrands.indexOf(inputValue) !=  -1){
+    if (newBrands.indexOf(inputValue) !=  -1){
         
-        //Reemplazar por equivalente en Sweet Alert
-        brandForm["input_box"].value = BRND_DUP_MSG
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: BRND_DUP_MSG,
+          });
+        
+        brandForm["input_box"].value = ""
         
         return
         
     }
     
     newBrands.push(inputValue)
-    
-    localStorage.setItem("brands", JSON.stringify(newBrands))
-    
-    //Necesito volver a popular el selector de marcas
-    populateSelector(newBrands, brandsSelector)
-    //Refresco lista de marcas existentes
-    populateList(newBrands, brandList)
-    
-    //Reemplazar por equivalente en Sweet Alert
-    brandForm["input_box"].value = BRND_OK_MSG
 
-    setTimeout(()=>{
+    let sortedBrand = newBrands.sort()
+
+    Swal.fire({
+        title: "¿Estás seguro?",
+        text: `${inputValue} se agregará a la lista de piezas`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, agregar!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Excelente!",
+            text: BRND_OK_MSG,
+            icon: "success"
+          }); 
+          
+            localStorage.setItem("brands", JSON.stringify(sortedBrand))
+        
+            //Necesito volver a popular el selector de marcas
+            populateSelector("brands", brandsSelector)
+            //Actualizo lista de marcas existentes
+            populateList("brands", brandList)
+        
+        }
         brandForm["input_box"].value = ""
-    }, MSG_TIME)
+      });
 
 })
 
@@ -77,10 +101,10 @@ piecesForm.addEventListener("submit", (e)=>{
 
     let inputValue = parseInt(piecesForm["input_box"].value)
 
-    let newPieces = lsPieces
+    let newPieces = JSON.parse(localStorage.getItem("pieces"))
 
     //Chequeo que ingrese un número mayor a 1
-    if(inputValue <= 0 || isNaN(inputValue) || inputValue === NUM_ERR_MSG || inputValue === NUM_OK_MSG){
+    if(inputValue <= 0 || isNaN(inputValue)){
 
         Swal.fire({
             icon: "error",
@@ -94,7 +118,7 @@ piecesForm.addEventListener("submit", (e)=>{
     }
 
     //Verifico si la cantidad de piezas que se ingresó no se encuentra ya en el local storage    
-    if (lsPieces.indexOf(inputValue) !=  -1){
+    if (newPieces.indexOf(inputValue) !=  -1){
 
         Swal.fire({
             icon: "error",
@@ -131,9 +155,9 @@ piecesForm.addEventListener("submit", (e)=>{
             localStorage.setItem("pieces", JSON.stringify(sortedPieces))
         
             //Necesito volver a popular el selector de marcas
-            populateSelector(sortedPieces, piecesSelector)
+            populateSelector("pieces", piecesSelector)
             //Actualizo lista de piezas existentes
-            populateList(newPieces, piecesList)
+            populateList("pieces", piecesList)
         
         }
         piecesForm["input_box"].value = ""
@@ -186,7 +210,9 @@ puzzleForm.addEventListener("submit", (e)=>{
 
 })
 
-function populateSelector(items, parent){
+function populateSelector(collection, parent){
+
+    let items = JSON.parse(localStorage.getItem(collection))
 
     parent.replaceChildren()
     
@@ -206,7 +232,9 @@ function populateSelector(items, parent){
 
 }
 
-function populateList(items, parent){
+function populateList(collection, parent){
+
+    let items = JSON.parse(localStorage.getItem(collection))
 
     parent.replaceChildren()
     
@@ -214,25 +242,52 @@ function populateList(items, parent){
         let li = document.createElement("li")
         let button = document.createElement("button")
         let buttonIndex = items.indexOf(element)
-
+        
         li.innerHTML = element
         parent.appendChild(li)
-
+        
         button.innerHTML = "Borrar"
         button.id = buttonIndex
+        button.addEventListener("click", (e) => {
+            e.preventDefault()
+            removeItem(collection, buttonIndex)
+        })
         li.appendChild(button)
+
     }
 }
 
-function remove() {
- const brands = JSON.parse(localStorage.getItem("brands"));
- const filtered = brands.filter(item => item !== 'Ravensburger');
- localStorage.setItem("brands", JSON.stringify(filtered));
+// Función para remover items de las listas y selectores
+function removeItem(collection, indexToRemove){
+
+    let array = JSON.parse(localStorage.getItem(collection))
+
+    let newArray = array.filter((item, idx) => {
+
+        if (idx !== indexToRemove) {
+            return item
+        }
+
+    })
+
+    localStorage.setItem(collection, JSON.stringify(newArray));
+
+    populateSelector("brands", brandsSelector)
+    populateSelector("pieces", piecesSelector)
+
+    populateList("brands", brandList)
+    populateList("pieces", piecesList)
+
 }
-remove()
 
-populateSelector(lsBrands, brandsSelector)
-populateSelector(lsPieces, piecesSelector)
+populateSelector("brands", brandsSelector)
+populateSelector("pieces", piecesSelector)
 
-populateList(lsBrands, brandList)
-populateList(lsPieces, piecesList)
+populateList("brands", brandList)
+populateList("pieces", piecesList)
+
+// function remove() {
+//     const brands = JSON.parse(localStorage.getItem("brands"));
+//     const filtered = brands.filter(item => item !== 'Ravensburger');
+//     localStorage.setItem("brands", JSON.stringify(filtered));
+// }
