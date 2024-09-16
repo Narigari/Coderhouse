@@ -229,7 +229,6 @@ function remove() {
  const filtered = brands.filter(item => item !== 'Ravensburger');
  localStorage.setItem("brands", JSON.stringify(filtered));
 }
-
 remove()
 
 populateSelector(lsBrands, brandsSelector)
