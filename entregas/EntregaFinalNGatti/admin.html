@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h1>ADMIN PAGE</h1>
+            
+            <div id="forms">
+                <div>
+                    <h2>Administrar marcas</h2>
+                        <div>
+                            <h3>Marcas existentes</h3>
+                            <ul id="marcas_existentes"></ul>
+                        </div>
+                        <form id="brand_form">
+                            <fieldset class="fieldsets">
+                                <legend>Agregar nueva marca</legend>
+                                <input  class="text_input" type="text" name="input_box">
+                                <input type="submit" value="Agregar">
+                            </fieldset>
+                        </form>
+                    </div>
+                
+                    <div>
+                        <h2>Administrar piezas</h2>
+                        <div>
+                            <h3>Cantidad de piezas existentes</h3>
+                            <ul id="piezas_existentes"></ul>
+                        </div>
+
+                        <form id="pieces_form">
+                            <fieldset class="fieldsets">
+                                <legend>Agregar cantidad de piezas</legend>
+                                <input class="text_input" type="text" name="input_box">
+                                <input type="submit" value="Agregar">
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div>
+                    <form id="puzzle_form">
+                        <fieldset class="fieldsets">
+                            <legend>Agrega nuevo puzzle</legend>
+                            <label class="form_label">Seleccione una marca</label>
+                            <select class="form_select" id="brands_selector" name="brand_selected"></select>
+                            <label class="form_label">Seleccione una cantidad de piezas</label>
+                            <select class="form_select" id="pieces_selector" name="pieces_selected"></select>
+                            <label class="form_label">Escriba el nombre del puzzle</label>
+                            <input class="text_input" type="text" name="input_box">
+                            <input type="submit" value="Agregar">
+                        </fieldset>
+                    </form>
+                </div>
+                <div>
+                    <fieldset>
+                        <legend>Consola</legend>
+                        <p id="msg_console"></p>
+                    </fieldset>
+                </div>
+            </div>
+            <div>
+                <ul>
+                    <li>Un puzzle</li>
+                    <li>Otro puzzle</li>
+                    <li>Otro puzzle más</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="./js/puzzles.js"></script>
+<script src="./js/admin.js"></script>
+</html>

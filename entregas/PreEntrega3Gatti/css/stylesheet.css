@@ -1,0 +1,336 @@
+*{
+    padding: 0px;
+    margin: 0;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 300;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0px 20px;
+    gap: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+
+.nav_container1{
+    display: flex; 
+    align-items: center;
+    height: 30px;
+    width: 100vw;
+    max-width: 1000px;
+
+ 
+}
+.icon_header1{
+    display: flex;
+    height: 15px;
+}
+
+.nav_item{
+    display: flex;
+    gap:5px;
+
+}
+
+.link_active{
+    color: rgb(254, 105, 106);
+}
+
+.nav_items{
+    display: flex;
+    font-size:0.9rem;
+    gap:15px;
+}
+
+
+.nav_container2{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 100vw;
+    max-width: 1250px;
+
+}
+
+.logo_header{
+    height: 50px;
+    margin-right: 35px;
+}
+
+
+
+
+.nav_items2{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 37px;
+
+}
+.nav_item2{
+    display: flex;
+    font-weight: 400;
+}
+
+.nav_items3{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+    margin-right: 25px;
+}
+.nav_item3{
+    display: flex;
+    font-size:0.8em;
+    align-items: center;
+    gap: 5px;
+
+
+}
+
+.nav_item3 img{
+    height: 20px;
+}
+
+.main_body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0px 20px;
+}
+ul {
+    list-style-position: inside;
+ }
+
+.nav_body{
+    display: flex;
+    width: 100vw;
+    max-width: 1250px;
+    background-color: aqua;
+}
+
+.right_box1{
+    margin-left: 100px;
+    padding: 30px;
+
+}
+ 
+.right_box2{
+    margin-left: 100px;
+}
+
+.bullet{
+    display: inline;
+}
+
+.bullet_list{
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}
+
+.font_bold{
+    font-weight: 500;
+}
+.font_bold2{
+    font-weight: 400;
+}
+.line_height{
+    line-height: 25px;
+}
+
+.left_box3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.top_separation{
+    margin-top: 1rem;
+}
+
+.font_size1{
+    font-size: 1.8rem;
+}
+.bottom_separation{
+    margin-bottom: 1rem;
+}
+
+.bottom_body{
+    display: flex;
+    width: 100vw;
+    max-width: 1000px;
+    padding-left: 20px;
+
+}
+
+.bottom_left{
+    display: flex;
+    width: 50vw;
+    max-width: 1250px;
+    padding-left: 20px;
+
+}
+
+.bottom_right{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    max-width: 1000px;
+    padding-left: 20px;
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+}
+
+a:hover{
+    color: rgb(254, 105, 106);
+}
+
+ 
+.grid_hub{
+    display: grid;
+    grid-template-areas: "up_le up_ri" "bo_le bo_le" "bo_ri bo_ri";
+    gap: 2rem;
+    width: 100vw;
+    max-width: 1250px;
+}
+
+
+.tab1{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    width: 50%;
+}
+
+.tab2{
+    width: 50%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.tab3{
+    width: 50%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.tab2_link{
+    border-bottom: 1px solid rgb(254, 105, 106);
+}
+
+.active_tab{
+    border-bottom: 1px solid rgb(254, 105, 106);
+}
+
+.section_subtitle{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.section_up_ri{
+
+    grid-area: up_ri;
+
+}
+
+.section_up_le{
+
+    grid-area: up_le;
+    padding: 2rem 0px;
+}
+
+.section_bo_ri{
+    background-color: rgb(245,245,245);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+    max-width: 1000px;
+}
+
+.section_bo_le{
+    background-color:red;
+    grid-area: bo_le;
+}
+
+.cards_container{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    justify-content: space-evenly;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, .25);
+
+}
+
+.card_activity{
+    display: grid;
+    grid-template-areas: "puzz_thum puzz_info player_link card_time";
+    grid-template-columns: 120px 1.3fr 0.7fr 0.5fr;
+    padding: 5px 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    background-color: rgb(245,245,245)
+}
+
+.card_activity2{
+    display: flex;
+    flex-direction: column;
+    grid-template-areas: "puzz_thum player_link card_time";
+    grid-template-columns: 200px  0.7fr 0.5fr;
+    padding: 20px 20px;
+    max-width: 1000px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    background-color: rgb(245,245,245)
+}
+
+.thumb_container{
+    height: 80px;
+    grid-area: puzz_thum;
+    justify-self: center;
+
+}
+
+.puzz_thumbnail{
+    max-width: 100px;
+    max-height: 80px;
+    border-radius: 10%;
+}
+
+.puzz_info_card{
+    grid-area: puzz_info;
+
+}
+
+.player_link{
+    gap: 10px;
+    display: flex;
+    grid-area: player_link;
+    height: 15px;
+
+}
+
+.card_time{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    grid-area: card_time;
+
+}

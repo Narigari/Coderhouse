@@ -1,0 +1,33 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+#forms{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 20px 20px;
+}
+
+.form_label{
+    margin-bottom: 0.25rem;
+}
+
+.text_input{
+    margin-bottom: 1rem;
+}
+
+.form_select{
+    margin-bottom: 1rem;
+}
+
+.fieldsets{
+    display: flex;
+    flex-direction: column;
+}
+
+#msg_console{
+    border: 1px solid black;
+    height: 100px;
+}
