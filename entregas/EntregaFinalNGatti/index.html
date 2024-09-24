@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrega Final</title>
+    <title>Inicie sesión</title>
 </head>
 <body>
-    
+    <header>
+        <h1>BIENVENIDO!</h1>
+    </header>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit">Login</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+    </div>
+    <script src="./js/puzzles.js"></script>
+    <script src="./js/login.js"></script>
 </body>
-<script src="./js/puzzles.js"></script>
-<script src="./js/index.js"></script>
 </html>

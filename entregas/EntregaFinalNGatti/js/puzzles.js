@@ -24,11 +24,16 @@ const USERS = [
     {
         username: "Admin",
         password: "admin1234",
-        isAdmin: true
+        isAdmin: true,
+    },
+    {
+        username: "User",
+        password: "user1234",
+        isAdmin: false
     }
 ]
 
-
+// Función para asegurarnos una mínima lista de items para marcas y piezas en el LS
 function loadInitialData(){
 
     let lsBrands = JSON.parse(localStorage.getItem("brands"))

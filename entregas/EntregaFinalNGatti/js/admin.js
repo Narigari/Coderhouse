@@ -18,6 +18,7 @@ const piecesSelector = document.getElementById("pieces_selector")
 const brandList = document.getElementById("marcas_existentes")
 const piecesList = document.getElementById("piezas_existentes")
 const msgConsole = document.getElementById("msg_console")
+const logOutDiv = document.getElementById("logOut")
 
 let lsBrands = JSON.parse(localStorage.getItem("brands"))
 let lsPieces = JSON.parse(localStorage.getItem("pieces"))
@@ -286,8 +287,31 @@ populateSelector("pieces", piecesSelector)
 populateList("brands", brandList)
 populateList("pieces", piecesList)
 
-// function remove() {
-//     const brands = JSON.parse(localStorage.getItem("brands"));
-//     const filtered = brands.filter(item => item !== 'Ravensburger');
-//     localStorage.setItem("brands", JSON.stringify(filtered));
-// }
+// Logout
+function loggingOut (){
+
+    let isLogged = JSON.parse(sessionStorage.getItem("log"))
+    
+    console.log(isLogged.loggedUser)
+    
+    if(isLogged){
+        sessionStorage.setItem("log", JSON.stringify({loggedUser: "", isAdmin: false}))
+        window.location.href = "index.html"
+    }
+}
+
+
+function cerrarSesion(){
+    let button = document.createElement("button")
+    
+    button.addEventListener("click", (e)=>{
+        e.preventDefault()
+        loggingOut()
+    })
+
+    button.innerHTML = "Logout"
+
+    logOutDiv.appendChild(button)
+
+}
+cerrarSesion()
