@@ -1,29 +1,23 @@
-// Traigo los arrays de brands, pieces y titles desde el LS
-let brands = JSON.parse(localStorage.getItem("brands"))
-let pieces = JSON.parse(localStorage.getItem("pieces"))
-const titles = ["Mountain View", "Cityscape", "Sunset Beach", "Ocean Dream"];
+// Traigo los arrays de brands, pieces y titles desde el LS. Y el logged user desde SessionStorage
+let puzzles = JSON.parse(localStorage.getItem("puzzles"))
+let countries = JSON.parse(localStorage.getItem("countries"))
+let users = JSON.parse(sessionStorage.getItem("log"))
+let loggedUser = users.loggedUser
 
-// List of Latin American countries for nationality dropdown
-const latinAmericanCountries = [
-    "Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Costa Rica", 
-    "Cuba", "Dominican Republic", "Ecuador", "El Salvador", "Guatemala", 
-    "Honduras", "Mexico", "Nicaragua", "Panama", "Paraguay", "Peru", 
-    "Uruguay", "Venezuela"
-];
-
-// Populate nationality dropdown
-const nationalityDropdown = document.getElementById("nationality");
-latinAmericanCountries.forEach(country => {
+console.log(puzzles)
+// Populate nacionalidad dropdown
+const nationality = document.getElementById("nationality")
+countries.forEach(country => {
     const option = document.createElement("option");
     option.value = country;
     option.textContent = country;
-    nationalityDropdown.appendChild(option);
+    nationality.appendChild(option);
 });
 
-// Populate brand, pieces, and title dropdowns
-function populateDropdown(dropdownId, valuesArray) {
+// Populate brand, pieces & title dropdowns
+function populateDropdown(dropdownId, elementArray) {
     const dropdown = document.getElementById(dropdownId);
-    valuesArray.forEach(value => {
+    elementArray.forEach(value => {
         const option = document.createElement("option");
         option.value = value;
         option.textContent = value;
@@ -31,30 +25,29 @@ function populateDropdown(dropdownId, valuesArray) {
     });
 }
 
-// Populate the Collection form dropdowns
-populateDropdown("brand", brands);
-populateDropdown("pieces", pieces);
-populateDropdown("title", titles);
+// Populate dropdowns para la sección Collección
+populateDropdown("puzzle", puzzles)
 
-// Handle Profile form submission
-document.getElementById("profile-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const name = document.getElementById("name").value;
-    const username = document.getElementById("username").value;
+// Form para editar perfil
+document.getElementById("profile_form").addEventListener("submit", function(event) {
+    event.preventDefault()
+
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
     const instagram = document.getElementById("instagram").value;
     const nationality = document.getElementById("nationality").value;
 
-    console.log("Profile Data: ", { name, username, instagram, nationality });
+    console.log("Profile Data: ", {nombre, apellido, instagram, nationality, loggedUser});
     alert("Profile saved successfully!");
 });
 
 // Handle Collection form submission
 document.getElementById("collection-form").addEventListener("submit", function(event) {
     event.preventDefault();
-    const brand = document.getElementById("brand").value;
-    const pieces = document.getElementById("pieces").value;
-    const title = document.getElementById("title").value;
+    const puzzle = document.getElementById("puzzle").value;
+    
+    localStorage.setItem("collection", JSON.stringify({loggedUser, puzzle}))
 
-    console.log("New Puzzle Added: ", { brand, pieces, title });
+    console.log("New Puzzle Added: ", { puzzle });
     alert("New puzzle added to collection!");
 });

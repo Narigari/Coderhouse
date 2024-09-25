@@ -9,49 +9,40 @@
 <body>
     <div class="container">
         <section id="profile-section">
-            <h2>Edit Profile</h2>
-            <form id="profile-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+            <h2>Editar Perfil</h2>
+            <form id="profile_form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
 
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
 
                 <label for="instagram">Instagram:</label>
                 <input type="text" id="instagram" name="instagram">
 
-                <label for="nationality">Nationality:</label>
+                <label for="nationality">Nacionalidad:</label>
                 <select id="nationality" name="nationality" required>
-                    <option value="">Select your nationality</option>
+                    <option value="">Seleccionar nacionalidad</option>
                 </select>
 
-                <button type="submit">Save Profile</button>
+                <button type="submit">Guardar perfil</button>
             </form>
         </section>
 
         <section id="collection-section">
-            <h2>Collection</h2>
+            <h2>Colección</h2>
             <form id="collection-form">
-                <label for="brand">Brand:</label>
-                <select id="brand" name="brand" required>
-                    <option value="">Select a brand</option>
+                <label for="puzzle">Puzzle</label>
+                <select id="puzzle" name="puzzle" required>
+                    <option value="">Seleccionar puzzle</option>
                 </select>
 
-                <label for="pieces">Pieces:</label>
-                <select id="pieces" name="pieces" required>
-                    <option value="">Select number of pieces</option>
-                </select>
-
-                <label for="title">Title:</label>
-                <select id="title" name="title" required>
-                    <option value="">Select a puzzle title</option>
-                </select>
-
-                <button type="submit">Add Puzzle</button>
+                <button type="submit">Agregar puzzle a colección</button>
             </form>
         </section>
     </div>
 
     <script src="./js/profile.js"></script>
+    <script src="./js/init.js"></script>
 </body>
 </html>

@@ -36,16 +36,34 @@ const USERS = [
     }
 ]
 
+const COUNTRIES = [
+    "Argentina", "Bolivia", "Brasil", "Chile", "Colombia", "Costa Rica", 
+    "Cuba", "Ecuador", "El Salvador", "Guatemala", 
+    "Honduras", "México", "Nicaragua", "Panamá", "Paraguay", "Perú", "República Dominicana",
+    "Uruguay", "Venezuela"
+]
+
+const COLLECTION = [
+    {
+        user: "User",
+        title: "Paris Postcard",
+        brand: "Ravensburger",
+        pieces: 500
+    },
+    {
+        user: "User",
+        title: "Tigers",
+        brand: "Clementoni",
+        pieces: 2000
+    }
+]
+// Funciones para actualizar LS (get y set)
 function getLocalStorageItem(item){
-
     return JSON.parse(localStorage.getItem(item))
-
 }
 
 function setLocalStorageItem(item, object){
-
     localStorage.setItem(item, JSON.stringify(object))
-
 }
 
 //Hace una carga inicital de datos sólo si la cantidad de elementos por item en el Local Storage es menor a la cantidad por itemn arriba listados o si directamente no hay nada cargado.
@@ -56,13 +74,16 @@ function loadInitialData(){
     let lsUsers = getLocalStorageItem("users")
     let lsPieces = getLocalStorageItem("pieces")
     let lsPuzzles = getLocalStorageItem("puzzles")
+    let lsCollection = getLocalStorageItem("collection")
 
+    setLocalStorageItem("countries", COUNTRIES)
+    
     //Si no hay nada cargado en el Local Storage o si la cantidad de elementos por item en el Local Storage es menor a lo que está listado arriba, hago una carga. Si no, dejo lo que ya esté cargado en el Local Storage (por si ya estuve agregando items a mano a través de la página)
     if(lsBrands === null || lsBrands.length < BRANDS.length) setLocalStorageItem("brands", BRANDS)
     if(lsPieces === null || lsPieces.length < PIECES.length) setLocalStorageItem("pieces", PIECES)
     if(lsUsers === null || lsUsers.length < USERS.length) setLocalStorageItem("users", USERS)
     if(lsPuzzles === null || lsPuzzles.length < PUZZLES.length) setLocalStorageItem("puzzles", PUZZLES)
-
+    if(lsCollection === null || lsCollection.length < COLLECTION.length) setLocalStorageItem("collection", COLLECTION)
 }
 
 loadInitialData()
