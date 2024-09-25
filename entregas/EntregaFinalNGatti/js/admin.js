@@ -102,7 +102,7 @@ piecesForm.addEventListener("submit", (e)=>{
 
     let inputValue = parseInt(piecesForm["input_box"].value)
 
-    let newPieces = JSON.parse(localStorage.getItem("pieces"))
+    let newPieces = getLocalStorageItem("pieces")
 
     //Chequeo que ingrese un número mayor a 1
     if(inputValue <= 0 || isNaN(inputValue)){
@@ -153,7 +153,7 @@ piecesForm.addEventListener("submit", (e)=>{
             icon: "success"
           }); 
           
-            localStorage.setItem("pieces", JSON.stringify(sortedPieces))
+            setLocalStorageItem("pieces", sortedPieces)
         
             //Necesito volver a popular el selector de marcas
             populateSelector("pieces", piecesSelector)
@@ -210,76 +210,6 @@ puzzleForm.addEventListener("submit", (e)=>{
     }, MSG_TIME)
 
 })
-
-function populateSelector(collection, parent){
-
-    let items = JSON.parse(localStorage.getItem(collection))
-
-    parent.replaceChildren()
-    
-    let defaultOption = document.createElement("option")
-
-    defaultOption.innerHTML = "Seleccione una opción"
-    defaultOption.disabled = true
-    defaultOption.selected = true
-
-    parent.appendChild(defaultOption)
-
-    for(element of items){
-        let opt = document.createElement("option")
-        opt.innerHTML = element
-        parent.appendChild(opt)
-    }
-
-}
-
-function populateList(collection, parent){
-
-    let items = JSON.parse(localStorage.getItem(collection))
-
-    parent.replaceChildren()
-    
-    for(element of items){
-        let li = document.createElement("li")
-        let button = document.createElement("button")
-        let buttonIndex = items.indexOf(element)
-        
-        li.innerHTML = element
-        parent.appendChild(li)
-        
-        button.innerHTML = "Borrar"
-        button.id = buttonIndex
-        button.addEventListener("click", (e) => {
-            e.preventDefault()
-            removeItem(collection, buttonIndex)
-        })
-        li.appendChild(button)
-
-    }
-}
-
-// Función para remover items de las listas y selectores
-function removeItem(collection, indexToRemove){
-
-    let array = JSON.parse(localStorage.getItem(collection))
-
-    let newArray = array.filter((item, idx) => {
-
-        if (idx !== indexToRemove) {
-            return item
-        }
-
-    })
-
-    localStorage.setItem(collection, JSON.stringify(newArray));
-
-    populateSelector("brands", brandsSelector)
-    populateSelector("pieces", piecesSelector)
-
-    populateList("brands", brandList)
-    populateList("pieces", piecesList)
-
-}
 
 populateSelector("brands", brandsSelector)
 populateSelector("pieces", piecesSelector)

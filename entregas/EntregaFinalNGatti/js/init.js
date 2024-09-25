@@ -57,16 +57,8 @@ const COLLECTION = [
         pieces: 2000
     }
 ]
-// Funciones para actualizar LS (get y set)
-function getLocalStorageItem(item){
-    return JSON.parse(localStorage.getItem(item))
-}
 
-function setLocalStorageItem(item, object){
-    localStorage.setItem(item, JSON.stringify(object))
-}
-
-//Hace una carga inicital de datos sólo si la cantidad de elementos por item en el Local Storage es menor a la cantidad por itemn arriba listados o si directamente no hay nada cargado.
+//Hace una carga inicial de datos sólo si la cantidad de elementos por item en el Local Storage es menor a la cantidad por itemn arriba listados o si directamente no hay nada cargado.
 function loadInitialData(){
 
     //Primero traigo todo lo que ya esté cargado en el Local Storage
