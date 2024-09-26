@@ -4,30 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/stylesheet.css">
-    <title>Inicie sesión</title>
+    <title>Bienvenidos!</title>
 </head>
 <body>
     <header>
+        <nav>
+            <ul id="nav-menu"></ul>
+        </nav>
     </header>
-    <div class="login-container">
-        <h1 id="welcome-message">Bienvenido a la base de datos de puzzles</h1>
+    <div class="main-container"></div>
+        <h1 id="main-title">Bienvenido a la base de datos de puzzles</h1>
         <h2>Por favor, logueate para continuar</h2>
-        <form id="login-form">
-            <div class="login-input-group">
-                <label for="username">Usuario</label>
-                <input class="login-input" type="text" id="username" placeholder="Ingresa tu usuario" required>
-            </div>
-            <div class="login-input-group">
-                <label for="password">Clave</label>
-                <input class="login-input" type="password" id="password" placeholder="Ingresa tu clave" required>
-            </div>
-            <input type="submit" id="login-button" value="LOGIN">
-        </form>
-        <p>No tenés usuario? Hacé click <a href="new.html">acá</a> para registrarte</p>
-        <p id="login-message-box"></p>  
     </div>
     <script src="./js/functions.js"></script>
     <script src="./js/init.js"></script>
-    <script src="./js/login.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>

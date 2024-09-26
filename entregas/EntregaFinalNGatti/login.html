@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+    <title>Inicie sesión</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="nav-menu"></ul>
+        </nav>
+    </header>
+    <div class="form-container">
+        <h1 id="main-title">Bienvenido a la base de datos de puzzles</h1>
+        <h2>Por favor, logueate para continuar</h2>
+        <form id="login-form" class="column-form">
+            <div class="input-group">
+                <label for="username">Usuario</label>
+                <input class="text-input" type="text" id="username" placeholder="Ingresa tu usuario" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Clave</label>
+                <input class="text-input" type="password" id="password" placeholder="Ingresa tu clave" required>
+            </div>
+            <input type="submit" id="form-button" value="LOGIN">
+        </form>
+        <p>No tenés usuario? Hacé click <a href="new.html">acá</a> para registrarte</p>
+        <p id="message-box"></p>  
+    </div>
+    <script src="./js/functions.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+</html>

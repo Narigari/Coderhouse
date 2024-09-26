@@ -20,7 +20,7 @@ const piecesList = document.getElementById("piezas_existentes")
 const msgConsole = document.getElementById("msg_console")
 const logOutDiv = document.getElementById("logOut")
 
-let lsBrands = JSON.parse(localStorage.getItem("brands"))
+let currentBrands = JSON.parse(localStorage.getItem("brands"))
 let lsPieces = JSON.parse(localStorage.getItem("pieces"))
 let lsPuzzles = JSON.parse(localStorage.getItem("puzzles"))
 

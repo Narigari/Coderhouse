@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/stylesheet.css">
     <title>Nuevo Perfil</title>
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <ul id="nav-menu"></ul>
+        </nav>
+    </header>
+    <div class="form-container">
+        <h1 id="main-title">Crear un nuevo usuario</h1>
+        <h2>Por favor, ingresá los datos que te pedimos a continuación</h2>
+        <form class="column-form" id="new-user-form">
+            <div class="input-group">
+                <label for="username">Usuario</label>
+                <input class="text-input" name="username" type="text" placeholder="Escriba un nombre de usuario" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Clave</label>
+                <input class="text-input" name="password" type="password" placeholder="Escriba una clave" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Repita la Clave</label>
+                <input class="text-input" name="password-check" type="password" placeholder="Repita la misma clave" required> 
+            </div>
+            <div class="input-group">
+                <label for="nationality">Nacionalidad</label>
+                <select class="text-input" name="nationality" id="nationality-selector" required></select>
+            </div>
+            <div class="input-group">
+                <label for="instagram">Instagram</label>
+                <input class="text-input" name="instagram" placeholder="Usuario de Instagram">
+            </div>
+            <input type="submit" value="CREAR USUARIO" id="form-button">
+        </form>
+        <p id="message-box"></p>  
+    </div>
+    <script src="./js/functions.js"></script>
+    <script src="./js/new.js"></script>
 </body>
 </html>
