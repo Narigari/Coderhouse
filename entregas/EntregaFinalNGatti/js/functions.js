@@ -99,7 +99,6 @@ function createNavBar(){
     const loginItem = document.createElement("li")
     const loginHref = document.createElement("a")
     const logoutItem = document.createElement("li")
-    const logoutHref = document.createElement("a")
     const homeItem = document.createElement("li")
     const homeHref = document.createElement("a")
     const newUserItem = document.createElement("li")
@@ -107,35 +106,64 @@ function createNavBar(){
     
     homeHref.innerHTML = "Inicio"
     homeHref.href = "index.html"
+    homeHref.className = "menu-item"
     homeItem.appendChild(homeHref)
     adminHref.innerHTML = "Administración"
     adminHref.href = "admin.html"
+    adminHref.className = "menu-item"
     adminItem.appendChild(adminHref)
     userHref.innerHTML = "Perfil"
     userHref.href = "profile.html"
+    userHref.className = "menu-item"
     userItem.appendChild(userHref)
     loginHref.innerHTML = "Login"
     loginHref.href = "login.html"
+    loginHref.className = "menu-item"
     loginItem.appendChild(loginHref)
-    logoutHref.innerHTML = "Logout"
-    logoutHref.href = "index.html"
-    logoutItem.appendChild(logoutHref)
+    logoutItem.innerHTML = "Logout"
+    logoutItem.className = "menu-item"
     newUserHref.innerHTML = "Nuevo Usuario"
     newUserHref.href = "new.html"
+    newUserHref.className = "menu-item"
     newUserItem.appendChild(newUserHref)
     
     let loggedUser = getSessionStorageItem("loggedUser")
 
-    let currentPage = window.location.href
+    let currentPage = window.location.pathname
+
+    logoutItem.addEventListener("click",(event)=>{
+        event.preventDefault()
+        sessionStorage.removeItem("loggedUser")
+        window.location.href = "index.html"
+    })
 
     navMenu.replaceChildren()
 
     navMenu.appendChild(homeItem)
 
+    let isLogged = !loggedUser || loggedUser.length === 0 ? false : true
     
-
-    if (!loggedUser || loggedUser.length === 0){
-        navMenu.appendChild(loginItem)
-        navMenu.appendChild(newUserItem)
+    switch (currentPage){
+        case "/entregas/EntregaFinalNGatti/index.html":
+            if (!isLogged){
+                navMenu.appendChild(loginItem)
+                navMenu.appendChild(newUserItem)
+                return
+            }
+            if(loggedUser.isAdmin === true){
+                navMenu.appendChild(adminItem)
+            } else {
+                navMenu.appendChild(userItem)
+            }
+            navMenu.appendChild(logoutItem)
+            break;
+        case "/entregas/EntregaFinalNGatti/admin.html":
+            if (isLogged) navMenu.appendChild(logoutItem)
+            break;
+        case  "/entregas/EntregaFinalNGatti/profile.html":
+            if (isLogged) navMenu.appendChild(logoutItem)
+            break;
+        default:
+            break;
     }
 }

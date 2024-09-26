@@ -24,6 +24,8 @@ let currentBrands = JSON.parse(localStorage.getItem("brands"))
 let lsPieces = JSON.parse(localStorage.getItem("pieces"))
 let lsPuzzles = JSON.parse(localStorage.getItem("puzzles"))
 
+createNavBar()
+
 //Le agrego un event listener al formulario para crear marcas
 brandForm.addEventListener("submit", (e) =>{
 

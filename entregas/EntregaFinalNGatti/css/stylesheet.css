@@ -27,6 +27,18 @@ form{
     list-style: none;
 }
 
+.menu-item{
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: gray;
+}
+
+.menu-item:hover{
+    color: black;
+}
+
 #forms{
     display: flex;
     flex-direction: column;
