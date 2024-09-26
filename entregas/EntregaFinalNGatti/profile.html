@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile and Collection</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./css/stylesheet.css">
 </head>
 <body>
     <div class="container">
@@ -22,7 +23,7 @@
 
                 <label for="nationality">Nacionalidad:</label>
                 <select id="nationality" name="nationality" required>
-                    <option value="">Seleccionar nacionalidad</option>
+                    <option value="" disabled ="disabled" selected="selected">Seleccionar nacionalidad</option>
                 </select>
 
                 <button type="submit">Guardar perfil</button>
@@ -34,15 +35,23 @@
             <form id="collection-form">
                 <label for="puzzle">Puzzle</label>
                 <select id="puzzle" name="puzzle" required>
-                    <option value="">Seleccionar puzzle</option>
+                    <option value="" disabled ="disabled" selected="selected">Seleccionar puzzle</option>
+                    
                 </select>
 
                 <button type="submit">Agregar puzzle a colección</button>
             </form>
+
+            <div>
+                <h3>Mi colección</h3>
+                <ul id="my-collection"></ul>
+            </div>
         </section>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./js/functions.js"></script>
-    <script src="./js/profile.js"></script>
     <script src="./js/init.js"></script>
+    <script src="./js/profile.js"></script>
 </body>
 </html>
