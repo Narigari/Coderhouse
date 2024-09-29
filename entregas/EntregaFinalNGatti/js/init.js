@@ -7,17 +7,20 @@ const PUZZLES = [
     {
         title: "Cats on the Shelf",
         brand: "Ravensburger",
-        pieces: 500
+        pieces: 500,
+        thumbnail: "./img/image.png"
     },
     {
         title: "Seafood",
         brand: "Ravensburger",
-        pieces: 1500
+        pieces: 1500,
+        thumbnail: "./img/image.png"
     },
     {
         title: "New York",
         brand: "Ravensburger",
-        pieces: 500
+        pieces: 500,
+        thumbnail: "./img/image.png"
     }
 ]
 
