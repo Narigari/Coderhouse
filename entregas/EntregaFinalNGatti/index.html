@@ -9,12 +9,21 @@
 <body>
     <header>
         <nav>
-            <ul id="nav-menu"></ul>
+            <ul id="nav-menu">
+                <li><a class="menu-item" href="index.html">inicio</a></li>
+                <li class="unlogged-items"><a class="menu-item" href="login.html">login</a></li>
+                <li class="unlogged-items"><a class="menu-item" href="new.html">nuevo usario</a></li>
+                <li class="logged-items" id="admin"><a class="menu-item" href="admin.html">admin</a></li>
+                <li class="logged-items" id="profile"><a class="menu-item" href="profile.html">perfil</a></li>
+                <li class="logged-items" id="logout"><a class="menu-item">logout</a></li>
+            </ul>
         </nav>
     </header>
     <div class="main-container"></div>
         <h1 id="main-title">Bienvenido a la base de datos de puzzles</h1>
-        <h2>Por favor, logueate para continuar</h2>
+        <h2 class="unlogged-items">Por favor, <a href="login.html">logueate</a> para continuar</h2>
+        <div class="logged-items" id="puzzle-list">
+        </div>
     </div>
     <script src="./js/functions.js"></script>
     <script src="./js/init.js"></script>

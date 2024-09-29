@@ -2,8 +2,9 @@ const messageBox = document.getElementById("message-box")
 const loginForm = document.getElementById("login-form")
 const username = document.getElementById("username")
 const password = document.getElementById("password")
+const logout = document.getElementById("logout")
 
-createNavBar()
+toggleItemsVisibility()
 
 loginForm.addEventListener("submit", (event) => {
     event.preventDefault();

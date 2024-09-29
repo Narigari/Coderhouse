@@ -4,7 +4,7 @@ const messageBox = document.getElementById("message-box")
 
 populateSelector("countries", nationalitySelector, "Seleccione una nacionalidad")
 
-createNavBar()
+toggleItemsVisibility()
 
 newUserForm.addEventListener("submit", (event)=>{
     event.preventDefault()

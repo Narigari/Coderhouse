@@ -90,80 +90,46 @@ function createNewUser(object){
     return "Nuevo usuario creado"
 }
 
-function createNavBar(){
-    const navMenu = document.getElementById("nav-menu")
-    const adminItem = document.createElement("li")
-    const adminHref = document.createElement("a")
-    const userItem = document.createElement("li")
-    const userHref = document.createElement("a")
-    const loginItem = document.createElement("li")
-    const loginHref = document.createElement("a")
-    const logoutItem = document.createElement("li")
-    const homeItem = document.createElement("li")
-    const homeHref = document.createElement("a")
-    const newUserItem = document.createElement("li")
-    const newUserHref = document.createElement("a")
-    
-    homeHref.innerHTML = "Inicio"
-    homeHref.href = "index.html"
-    homeHref.className = "menu-item"
-    homeItem.appendChild(homeHref)
-    adminHref.innerHTML = "Administración"
-    adminHref.href = "admin.html"
-    adminHref.className = "menu-item"
-    adminItem.appendChild(adminHref)
-    userHref.innerHTML = "Perfil"
-    userHref.href = "profile.html"
-    userHref.className = "menu-item"
-    userItem.appendChild(userHref)
-    loginHref.innerHTML = "Login"
-    loginHref.href = "login.html"
-    loginHref.className = "menu-item"
-    loginItem.appendChild(loginHref)
-    logoutItem.innerHTML = "Logout"
-    logoutItem.className = "menu-item"
-    newUserHref.innerHTML = "Nuevo Usuario"
-    newUserHref.href = "new.html"
-    newUserHref.className = "menu-item"
-    newUserItem.appendChild(newUserHref)
-    
-    let loggedUser = getSessionStorageItem("loggedUser")
+function toggleItemsVisibility(){
+    const admin = document.getElementById("admin")
+    const profile = document.getElementById("profile")
+    const logout = document.getElementById("logout")
+    const loggedItems = document.getElementsByClassName("logged-items")
+    const unloggedItems = document.getElementsByClassName("unlogged-items")
 
-    let currentPage = window.location.pathname
-
-    logoutItem.addEventListener("click",(event)=>{
+    logout.addEventListener("click",(event)=>{
         event.preventDefault()
+
         sessionStorage.removeItem("loggedUser")
-        window.location.href = "index.html"
+
+        window.location = "index.html"
     })
 
-    navMenu.replaceChildren()
-
-    navMenu.appendChild(homeItem)
+    let loggedUser = getSessionStorageItem("loggedUser")
 
     let isLogged = !loggedUser || loggedUser.length === 0 ? false : true
-    
-    switch (currentPage){
-        case "/entregas/EntregaFinalNGatti/index.html":
-            if (!isLogged){
-                navMenu.appendChild(loginItem)
-                navMenu.appendChild(newUserItem)
-                return
-            }
-            if(loggedUser.isAdmin === true){
-                navMenu.appendChild(adminItem)
-            } else {
-                navMenu.appendChild(userItem)
-            }
-            navMenu.appendChild(logoutItem)
-            break;
-        case "/entregas/EntregaFinalNGatti/admin.html":
-            if (isLogged) navMenu.appendChild(logoutItem)
-            break;
-        case  "/entregas/EntregaFinalNGatti/profile.html":
-            if (isLogged) navMenu.appendChild(logoutItem)
-            break;
-        default:
-            break;
+
+    if (isLogged){
+        for (item of loggedItems){
+            item.style.display = "block"
+        }
+
+        if (loggedUser["isAdmin"]) {
+            if (profile) profile.style.display = "none"
+        } else {
+            if (admin) admin.style.display = "none"
+        }
+
+        for (item of unloggedItems){
+            item.style.display = "none"
+        }
+    } else {
+        for (item of loggedItems){
+            item.style.display = "none"
+        }
+
+        for (item of unloggedItems){
+            item.style.display = "block"
+        }
     }
 }

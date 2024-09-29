@@ -21,10 +21,10 @@ const msgConsole = document.getElementById("msg_console")
 const logOutDiv = document.getElementById("logOut")
 
 let currentBrands = JSON.parse(localStorage.getItem("brands"))
-let lsPieces = JSON.parse(localStorage.getItem("pieces"))
-let lsPuzzles = JSON.parse(localStorage.getItem("puzzles"))
+let currentPieces = JSON.parse(localStorage.getItem("pieces"))
+let currentPuzzles = JSON.parse(localStorage.getItem("puzzles"))
 
-createNavBar()
+toggleItemsVisibility()
 
 //Le agrego un event listener al formulario para crear marcas
 brandForm.addEventListener("submit", (e) =>{
@@ -179,7 +179,7 @@ puzzleForm.addEventListener("submit", (e)=>{
 
     let selectedPieces = puzzleForm["pieces_selected"].selectedIndex
 
-    let newPuzzles = lsPuzzles
+    let newPuzzles = currentPuzzles
 
     console.log(selectedBrand)
 
