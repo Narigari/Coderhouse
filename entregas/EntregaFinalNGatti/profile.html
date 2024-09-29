@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="./css/stylesheet.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul id="nav-menu"></ul>
+        </nav>
+    </header>
     <div class="container">
         <section id="profile-section">
             <h2>Editar Perfil</h2>
@@ -26,7 +31,7 @@
                     <option value="" disabled ="disabled" selected="selected">Seleccionar nacionalidad</option>
                 </select>
 
-                <button type="submit">Guardar perfil</button>
+                <button type="submit">Modificar perfil</button>
             </form>
         </section>
 
@@ -47,11 +52,16 @@
                 <ul id="my-collection"></ul>
             </div>
         </section>
+        <section id="weather-section">
+            <h2>El clima hoy</h2>
+            <p id="weather-message">Fetching weather data...</p>
+        </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./js/functions.js"></script>
     <script src="./js/init.js"></script>
     <script src="./js/profile.js"></script>
+    <script src="./js/weather.js"></script>
 </body>
 </html>

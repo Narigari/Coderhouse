@@ -1,3 +1,4 @@
+createNavBar()
 // Traigo los arrays de brands, pieces y titles desde el LS. Y el logged user desde SessionStorage
 let puzzles = JSON.parse(localStorage.getItem("puzzles"))
 let countries = JSON.parse(localStorage.getItem("countries"))
@@ -37,6 +38,7 @@ document.getElementById("profile_form").addEventListener("submit", function(even
     const instagram = document.getElementById("instagram").value;
     const nationality = document.getElementById("nationality").value;
 
+    //CAMBIAR ESTO!:
     console.log("Profile Data: ", {nombre, apellido, instagram, nationality, loggedUser});
     alert("Profile saved successfully!");
 });
@@ -84,20 +86,5 @@ function refreshCollection(puzzleDB){
     }
 }
 let mycollection = getLocalStorageItem("collection")
-console.log(mycollection)
+
 refreshCollection(mycollection)
-// function refreshPuzzleList(puzzleDB){
-
-//     const puzzleList = document.getElementById("my-collection")
-
-//     puzzleList.replaceChildren()
-
-//     for (let i = 0; i < puzzleDB.length; i++){
-
-//         let puzzleLi = document.createElement("li")
-//         puzzleLi.innerHTML = `${puzzleDB[i].nombre} / ${puzzleDB[i].marca} / ${puzzleDB[i].piezas} piezas\n`
-//         puzzleList.appendChild(puzzleLi)
-
-//     }
-
-// }
