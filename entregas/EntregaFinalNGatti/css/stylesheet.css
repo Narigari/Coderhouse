@@ -156,10 +156,21 @@ form{
     width: 500px;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
 .puzzle-thumbnail{
     height: 100px;
     border: 1px solid gray;
     border-radius: 5px;
+}
+
+#weather-section{
+    display: flex;
+    gap: 30px
 }
 
 .puzzle-details{

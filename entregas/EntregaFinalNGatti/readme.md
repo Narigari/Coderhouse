@@ -1,9 +1,9 @@
-El propósito del código de esta entrega es pedirle al usuario que vaya agregando puzzles en la colección
-- Marca y piezas son campos predeterminados, donde se pueden elegir las opciones con un dropdown menu
-    - Si no se selecciona ninguna opción válida, aparecerá un error pidiendo que ingrese algo válido
-    - Si selecciona marcas y piezas válidas, también tendrá que ingresar un título
-- El título es un box de input libre donde se puede ingresar cualquier string
-    - si se deja vacío, aparecerá un error pidiendo un input válido.
-
-Si todo se completa bien y se aprieta "Crear puzzle" esos datos se guardan en el localStorage y se van acumulando 
-El botón Borrar Local Storage sirve para limpiar el mismo.
+Entrega final:
+- Index: página de login. Si el logueado es admin, irá a la página Admin, si no, a Profile.
+    - Credenciales Admin:
+        Usuario: Admin
+        Pass: admin1234
+    - Hay un usuario hardcodeado (name: User / pass: user1234) pero la página también permite crear nuevos usuarios.
+- Admin.html: permite al administrador crear nuevas marcas y cantidad de piezas de puzzles. Con los datos existentes y/o los nuevos, se pueden crear nuevos puzzles que son agregados a una database (localstorage en nuestro caso)
+- Profile.html: si el que se loguea NO es admin, la página Profile se muestra. No hace mucho por el momento. Sólo lista la colección de puzzles de ese usuario y muestra la temperatura actual, que se obtiene con una API.
+- API: weather. Traigo la temperatura actual. Según la temperatura, el mensaje cambia.

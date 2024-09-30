@@ -200,12 +200,13 @@ puzzleForm.addEventListener("submit", (e)=>{
 
     }
 
-    //newPuzzles.push(inputValue)
+     Toastify({
 
-    //localStorage.setItem("puzzles", JSON.stringify(newPuzzles.sort()))
-
-    //Reemplazar por equivalente en Sweet Alert
-    puzzleForm["input_box"].value = NAME_OK_MSG
+      text: NAME_OK_MSG,
+      
+      duration: 3000
+      
+      }).showToast();
 
     setTimeout(()=>{
         puzzleForm["input_box"].value = ""
@@ -213,8 +214,8 @@ puzzleForm.addEventListener("submit", (e)=>{
 
 })
 
-populateSelector("brands", brandsSelector)
-populateSelector("pieces", piecesSelector)
+populateSelector("brands", brandsSelector, "Seleccione marca")
+populateSelector("pieces", piecesSelector, "Seleccione piezas")
 
 populateList("brands", brandList)
 populateList("pieces", piecesList)
