@@ -1,5 +1,5 @@
 // Función fetch de api de clima
-function getWeather() {
+async function getWeather() {
     const apiUrl = 'https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=mK4AxTUjkkxZkYiAiWnA2lx5jKPcHtbY'
 
     fetch(apiUrl)
@@ -24,4 +24,4 @@ function getWeather() {
         });
 }
 
-setInterval(getWeather(),60000)
+setInterval(await getWeather(),60000)
