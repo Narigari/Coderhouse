@@ -38,18 +38,21 @@
                 </div>
                 <div class="form-section">
                     <h2>Administrar piezas</h2>
-                    <div>
-                        <h3>Cantidad de piezas existentes</h3>
-                        <ul id="piezas_existentes"></ul>
+                    <div class="forms-item">
+                        <div class="existentes">
+                            <h3>Cantidad de piezas existentes</h3>
+                            <ul id="piezas_existentes"></ul>
+                        </div>
+                        <form id="pieces_form">
+                            <fieldset class="fieldsets">
+                                <legend>Agregar cantidad de piezas</legend>
+                                <input class="text_input" type="text" name="input_box">
+                                <input type="submit" value="Agregar">
+                            </fieldset>
+                        </form>
+
                     </div>
 
-                    <form id="pieces_form">
-                        <fieldset class="fieldsets">
-                            <legend>Agregar cantidad de piezas</legend>
-                            <input class="text_input" type="text" name="input_box">
-                            <input type="submit" value="Agregar">
-                        </fieldset>
-                    </form>
                 </div>
                 <div>
                 <form id="puzzle_form">

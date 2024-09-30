@@ -63,14 +63,28 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 .forms-item{
     display: flex;
-    gap: 50px
+    gap: 50px;
+    scroll-margin-bottom: 20px;
+
+    height: 200px;
+}
+
+.existentes{
+    width: 300px;
+    overflow-y: scroll;
 }
 
 #marcas_existentes{
+    height: 300px;
+    list-style: none;
+}
+
+#piezas_existentes{
     list-style: none;
 }
 
@@ -88,6 +102,7 @@ form{
 
 .fieldsets{
     display: flex;
+    gap: 10px;
     flex-direction: column;
 }
 
@@ -120,6 +135,7 @@ form{
     justify-content: space-between;
     width: 320px;
 }
+
 
 #form-button{
     font-size: 0.75rem;
