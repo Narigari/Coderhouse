@@ -17,51 +17,53 @@
         </nav>
     </header>
     <main>
-        <h1>ADMIN PAGE</h1>
+        <h1 class="title">ADMIN PAGE</h1>
         <div>
             <div id="forms">
-                <div>
+                <div class="form-section">
                     <h2>Administrar marcas</h2>
-                        <div>
+                    <div class="forms-item">
+                        <div class="existentes">
                             <h3>Marcas existentes</h3>
                             <ul id="marcas_existentes"></ul>
                         </div>
-                        <form id="brand_form">
-                            <fieldset class="fieldsets">
-                                <legend>Agregar nueva marca</legend>
-                                <input class="text_input" type="text" name="input_box">
-                                <input type="submit" value="Agregar">
-                            </fieldset>
-                        </form>
+                            <form id="brand_form">
+                                <fieldset class="fieldsets">
+                                    <legend>Agregar nueva marca</legend>
+                                    <input class="text_input" type="text" name="input_box">
+                                    <input type="submit" value="Agregar">
+                                </fieldset>
+                            </form>
                     </div>
+                </div>
+                <div class="form-section">
+                    <h2>Administrar piezas</h2>
                     <div>
-                        <h2>Administrar piezas</h2>
-                        <div>
-                            <h3>Cantidad de piezas existentes</h3>
-                            <ul id="piezas_existentes"></ul>
-                        </div>
+                        <h3>Cantidad de piezas existentes</h3>
+                        <ul id="piezas_existentes"></ul>
+                    </div>
 
-                        <form id="pieces_form">
-                            <fieldset class="fieldsets">
-                                <legend>Agregar cantidad de piezas</legend>
-                                <input class="text_input" type="text" name="input_box">
-                                <input type="submit" value="Agregar">
-                            </fieldset>
-                        </form>
-                    </div>
-                    <div>
-                    <form id="puzzle_form">
+                    <form id="pieces_form">
                         <fieldset class="fieldsets">
-                            <legend>Agrega nuevo puzzle</legend>
-                            <label class="form_label">Seleccione una marca</label>
-                            <select class="form_select" id="brands_selector" name="brand_selected"></select>
-                            <label class="form_label">Seleccione una cantidad de piezas</label>
-                            <select class="form_select" id="pieces_selector" name="pieces_selected"></select>
-                            <label class="form_label">Escriba el nombre del puzzle</label>
+                            <legend>Agregar cantidad de piezas</legend>
                             <input class="text_input" type="text" name="input_box">
                             <input type="submit" value="Agregar">
                         </fieldset>
                     </form>
+                </div>
+                <div>
+                <form id="puzzle_form">
+                    <fieldset class="fieldsets">
+                        <legend>Agrega nuevo puzzle</legend>
+                        <label class="form_label">Seleccione una marca</label>
+                        <select class="form_select" id="brands_selector" name="brand_selected"></select>
+                        <label class="form_label">Seleccione una cantidad de piezas</label>
+                        <select class="form_select" id="pieces_selector" name="pieces_selected"></select>
+                        <label class="form_label">Escriba el nombre del puzzle</label>
+                        <input class="text_input" type="text" name="input_box">
+                        <input type="submit" value="Agregar">
+                    </fieldset>
+                </form>
                 </div>
             </div>
             <div id="logOut">

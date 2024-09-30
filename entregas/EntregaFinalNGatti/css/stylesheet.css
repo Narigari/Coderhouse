@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main{
+    background: none;
+    width: 1000 px
 }
 
 header{
@@ -12,6 +18,10 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url('https://images.pexels.com/photos/3482443/pexels-photo-3482443.jpeg');
+    background-repeat:   no-repeat;
+    background-position: left center;   
+    background-size: conver;
 }
 
 form{
@@ -44,6 +54,24 @@ form{
     flex-direction: column;
     height: fit-content;
     padding: 20px 20px;
+    width: 1000px;
+    align-items: center;
+    gap: 50px;
+}
+
+.form-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forms-item{
+    display: flex;
+    gap: 50px
+}
+
+#marcas_existentes{
+    list-style: none;
 }
 
 .form_label{
