@@ -114,9 +114,7 @@ function toggleItemsVisibility(){
             item.style.display = "block"
         }
 
-        if (loggedUser["isAdmin"]) {
-            if (profile) profile.style.display = "none"
-        } else {
+        if (!loggedUser["isAdmin"]) {
             if (admin) admin.style.display = "none"
         }
 

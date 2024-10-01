@@ -16,13 +16,43 @@
             </ul>
         </nav>
     </header>
-    <div class="container">
+    <div class="main-container">
+        <h1 id="main-title">Editar Mi Perfil</h1>
+        <div class="personal-data-container">
+            <h2 id="sub-title">Mis Datos Personales</h2>
+            <form class="column-form" id="edit-user-form">
+                <div class="input-group">
+                    <label for="username">Usuario</label>
+                    <input class="text-input" name="username" type="text" readonly>
+                </div>
+                <div class="input-group">
+                    <label for="current-password">Clave Actual*</label>
+                    <input class="text-input" name="current-password" type="password" placeholder="Ingrese la clave actual">
+                </div>
+                <div class="input-group">
+                    <label for="new-password">Clave Nueva*</label>
+                    <input class="text-input" name="new-password" type="password" placeholder="Ingrese la clave nueva"> 
+                </div>
+                <div class="input-group">
+                    <label for="new-password-check">Repita Clave Nueva*</label>
+                    <input class="text-input" name="new-password-check" type="password" placeholder="Repita la clave nueva"> 
+                </div>
+                <div class="input-group">
+                    <label for="nationality">Nacionalidad</label>
+                    <select class="text-input" name="nationality" id="nationality-selector" required></select>
+                </div>
+                <div class="input-group">
+                    <label for="instagram">Instagram</label>
+                    <input class="text-input" name="instagram">
+                </div>
+                <input type="submit" value="SALVAR CAMBIOS" id="form-button">
+                <h3 id="new-password-note">*Completar campos sólo si quiere cambiar la clave actual</h3>
+            </form>
+            <p id="message-box"></p>
+        </div>
         <section id="collection-section">
-            <h2>Colección</h2>
-            <div>
-                <h3>Mi colección</h3>
-                <ul id="my-collection"></ul>
-            </div>
+            <h2 id="sub-title">Mi Colección</h2>
+            <ul id="my-collection"></ul>
         </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

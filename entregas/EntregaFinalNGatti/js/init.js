@@ -29,14 +29,14 @@ const USERS = [
         username: "Admin",
         password: "admin1234",
         isAdmin: true,
-        nationality: "",
+        nationality: "Argentina",
         instagram: "admin_instragram"
     },
     {
         username: "User",
         password: "user1234",
         isAdmin: false,
-        nationality: "",
+        nationality: "Argentina",
         instagram: "user_instragram"
     }
 ]

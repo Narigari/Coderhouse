@@ -24,12 +24,6 @@ body{
     background-size: conver;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-}
-
 #nav-menu{
     display: flex;
     justify-content: space-between;
@@ -49,12 +43,12 @@ form{
     color: black;
 }
 
-#forms{
+.column-form{
     display: flex;
     flex-direction: column;
     height: fit-content;
+    width: fit-content;
     padding: 20px 20px;
-    width: 1000px;
     align-items: center;
     gap: 50px;
 }
@@ -107,7 +101,13 @@ form{
 }
 
 #main-title{
+    text-align: center;
     margin: 2rem;
+}
+
+#sub-title{
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .main-container{
@@ -133,7 +133,7 @@ form{
 .input-group{
     display: flex;
     justify-content: space-between;
-    width: 320px;
+    width: 400px;
 }
 
 
@@ -186,4 +186,9 @@ form{
 .puzzle-title{
     font-weight: 600;
     font-size: 2rem;
+}
+
+#new-password-note{
+    font-size: 0.8rem;
+    font-weight: 400;
 }
