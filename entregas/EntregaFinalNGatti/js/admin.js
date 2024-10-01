@@ -181,10 +181,6 @@ puzzleForm.addEventListener("submit", (e)=>{
 
     let newPuzzles = currentPuzzles
 
-    console.log(selectedBrand)
-
-    console.log(selectedPieces)
-
     if (!inputValue || inputValue === NAME_ERR_MSG || inputValue === NAME_OK_MSG) {
         
         //Reemplazar por equivalente en Sweet Alert
@@ -224,8 +220,6 @@ populateList("pieces", piecesList)
 function loggingOut (){
 
     let isLogged = JSON.parse(sessionStorage.getItem("log"))
-    
-    console.log(isLogged.loggedUser)
     
     if(isLogged){
         sessionStorage.setItem("log", JSON.stringify({loggedUser: "", isAdmin: false}))
