@@ -168,9 +168,10 @@ form{
     border-radius: 5px;
 }
 
-#weather-section{
-    display: flex;
-    gap: 30px
+#weather-message{
+    font-weight: 600;
+    font-style: italic;
+    margin: 2rem;
 }
 
 .puzzle-details{

@@ -14,6 +14,7 @@ function refreshCollection(puzzleDB){
         collection.appendChild(puzzleLi)
     }
 }
+
 let mycollection = getLocalStorageItem("collection")
 
 refreshCollection(mycollection)
